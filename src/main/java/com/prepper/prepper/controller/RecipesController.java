@@ -19,7 +19,7 @@ public class RecipesController {
         return recipeService.getRecipesByUser(userID);
     }
 
-    @GetMapping("getPublicRecipes")
+    @GetMapping("/getPublicRecipes")
     public List<Recipes> getPublicRecipes() {
         return recipeService.getPublicRecipes();
     }
@@ -36,7 +36,7 @@ public class RecipesController {
         Recipes newRecipe = recipeService.saveRecipe(recipe);
     }
 
-    @DeleteMapping(path = "{recipeID}")
+    @DeleteMapping(path = "/deleteRecipe/{recipeID}")
     public void removeRecipe(
             @PathVariable("recipeID")Integer recipeId) {
         recipeService.removeRecipe(recipeId);
