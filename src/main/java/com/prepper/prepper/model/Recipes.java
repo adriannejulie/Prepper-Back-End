@@ -7,11 +7,11 @@ public class Recipes {
 
     @Id
     @GeneratedValue
-    private Long ID;
-
-    private String imageURL;
+    private Integer recipeID;
 
     private String title;
+
+    private String imageURL;
 
     private String measurements;
 
@@ -19,21 +19,36 @@ public class Recipes {
 
     private String description;
 
-    private String steps;
+    private String instructions;
 
-    private Long duration;
+    private Integer prepTime;
 
-    private Long calories;
+    private Integer calories;
 
-    private Long saves;
+    private Integer saves;
 
     private boolean isPublic;
 
-    private Long userID;
+    private Integer userID;
+
+    public Recipes(String imageURL, String title, String measurements, String ingredients, String description, String instructions, Integer prepTime, Integer calories, Integer saves, boolean isPublic, Integer userID) {
+        this.title = title;
+        this.imageURL = imageURL;
+        this.measurements = measurements;
+        this.ingredients = ingredients;
+        this.description = description;
+        this.instructions = instructions;
+        this.prepTime = prepTime;
+        this.calories = calories;
+        this.saves = saves;
+        this.isPublic = isPublic;
+        this.userID = userID;
+    }
+    public Recipes() {}
 
     // Getters
-    public Long getID() {
-        return ID;
+    public Integer getRecipeID() {
+        return recipeID;
     }
 
     public String getImageURL() {
@@ -56,19 +71,19 @@ public class Recipes {
         return description;
     }
 
-    public String getSteps() {
-        return steps;
+    public String getInstructions() {
+        return instructions;
     }
 
-    public Long getDuration() {
-        return duration;
+    public Integer getPrepTime() {
+        return prepTime;
     }
 
-    public Long getCalories() {
+    public Integer getCalories() {
         return calories;
     }
 
-    public Long getSaves() {
+    public Integer getSaves() {
         return saves;
     }
 
@@ -76,7 +91,7 @@ public class Recipes {
         return isPublic;
     }
 
-    public Long getUserID() {
+    public Integer getUserID() {
         return userID;
     }
 
@@ -101,15 +116,15 @@ public class Recipes {
         this.description = description;
     }
 
-    public void setSteps(String steps) {
-        this.steps = steps;
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 
-    public void setDuration(Long duration) {
-        this.duration = duration;
+    public void setPrepTime(Integer prepTime) {
+        this.prepTime = prepTime;
     }
 
-    public void setCalories(Long calories) {
+    public void setCalories(Integer calories) {
         this.calories = calories;
     }
 

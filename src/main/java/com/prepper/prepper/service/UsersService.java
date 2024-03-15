@@ -12,7 +12,13 @@ public class UsersService {
     private UsersRepository usersRepository;
 
     public Users saveUser(Users user) {
-
         return usersRepository.save(user);
+    }
+    public Users getUserById(String userID) {
+        return usersRepository.findByUserID(Long.valueOf(userID));
+
+    }
+    public Users getAccountByEmailAddress(String email) {
+        return usersRepository.findByEmail(email);
     }
 }

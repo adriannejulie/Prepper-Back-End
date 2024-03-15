@@ -12,15 +12,24 @@ public class RecipesService {
     @Autowired
     private RecipesRepository recipesRepository;
 
-    public List<Recipes> getRecipes() {
-        return recipesRepository.findAll();
+    public List<Recipes> getRecipesByUser(Integer userId) {
+
+        return recipesRepository.findByUserID(userId);
+    }
+
+    public Recipes getRecipe(Integer recipeId) {
+
+        return recipesRepository.findByRecipeID(recipeId);
+    }
+
+    public List<Recipes> getPublicRecipes() {
+        return recipesRepository.findByIsPublic(true);
     }
     public Recipes saveRecipe(Recipes recipe) {
-//        Optional<Recipe> recipeByID = recipeRepository.findRecipeByID(recipe.getID());
         return recipesRepository.save(recipe);
     }
 
-    public void removeRecipe(Long recipeId) {
+    public void removeRecipe(Integer recipeId) {
         boolean exists = recipesRepository.existsById(recipeId);
         if (!exists) {
             throw new IllegalStateException(
