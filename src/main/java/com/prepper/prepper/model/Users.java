@@ -3,13 +3,15 @@ package com.prepper.prepper.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-public class User {
+@Table
+public class Users {
 
     @Id
     @GeneratedValue
-    private int userID;
+    private Long userID;
 
     private String email;
 
@@ -21,14 +23,11 @@ public class User {
 
     private boolean isGoogle;
 
-    public User() {
-    }
-
-    public int getUserID() {
+    public Long getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 
