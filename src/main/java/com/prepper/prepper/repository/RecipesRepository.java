@@ -9,9 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface RecipesRepository
-        extends JpaRepository<Recipes, Long> {
+        extends JpaRepository<Recipes, Integer> {
 
-//    @Query("SELECT s from Recipe s WHERE s.recipeID= ?1")
-//    Optional<Recipes> findRecipeByID(Integer id);
 
 }

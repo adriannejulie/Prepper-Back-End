@@ -20,7 +20,7 @@ public class RecipesService {
         return recipesRepository.save(recipe);
     }
 
-    public void removeRecipe(Long recipeId) {
+    public void removeRecipe(Integer recipeId) {
         boolean exists = recipesRepository.existsById(recipeId);
         if (!exists) {
             throw new IllegalStateException(
