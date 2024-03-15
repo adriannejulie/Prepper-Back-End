@@ -1,14 +1,13 @@
 package com.prepper.prepper.model;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
 
 @Entity
 public class Recipes {
 
     @Id
     @GeneratedValue
-    private Integer ID;
+    private Integer recipeID;
 
     private String title;
 
@@ -45,12 +44,11 @@ public class Recipes {
         this.isPublic = isPublic;
         this.userID = userID;
     }
-
     public Recipes() {}
 
     // Getters
-    public Integer getID() {
-        return ID;
+    public Integer getRecipeID() {
+        return recipeID;
     }
 
     public String getImageURL() {

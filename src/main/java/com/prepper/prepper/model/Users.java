@@ -23,6 +23,18 @@ public class Users {
 
     private boolean isGoogle;
 
+    public Users(String email, String firstName, String lastName, String password, boolean isGoogle) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.isGoogle = isGoogle;
+    }
+
+    public Users() {
+
+    }
+
     public Long getUserID() {
         return userID;
     }

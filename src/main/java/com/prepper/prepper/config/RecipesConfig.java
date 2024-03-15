@@ -41,8 +41,23 @@ public class RecipesConfig {
                     true,
                     2
             );
+
+            Recipes pancake = new Recipes(
+                    null,
+                    "Buttermilk Pancakes",
+                    "1 cup, 1 tsp, 1 tsp, 1, 1 1/8 cup, 2 tbsp, null",
+                    "flour, salt, baking soda, large egg, buttermilk, butter(melted), Syrup(Optional)",
+                    "Yummy Buttermilk pancakes",
+                    "1. Preheat and grease skillet 2. Mix flour, salt, baking soda. Then add egg, buttermilk, and butter. Batter should look thick, spongy, and puffy.  3. Drop 1/3 cup of batter, spread lightly, cook until lightly browned on each side, 1-2 minutes per side.",
+                    30,
+                    210,
+                    0,
+                    false,
+                    2
+            );
+
             repository.saveAll(
-                    List.of(pasta, salad)
+                    List.of(pasta, salad, pancake)
             );
         };
     }
