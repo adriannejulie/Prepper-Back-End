@@ -14,9 +14,20 @@ public class RecipesController {
     @Autowired
     private RecipesService recipeService;
 
-    @GetMapping("/getRecipes")
-    public List<Recipes> getRecipes() {
-        return recipeService.getRecipes();
+    @GetMapping("/getRecipes/{userID}")
+    public List<Recipes> getRecipesByUser(@PathVariable Integer userID) {
+        return recipeService.getRecipesByUser(userID);
+    }
+
+    @GetMapping("getPublicRecipes")
+    public List<Recipes> getPublicRecipes() {
+        return recipeService.getPublicRecipes();
+    }
+
+    @GetMapping("/getRecipe/{recipeID}")
+    public Recipes getRecipe(@PathVariable Integer recipeID) {
+
+        return recipeService.getRecipe(recipeID);
     }
 
     @PostMapping("/addRecipe")
@@ -25,9 +36,9 @@ public class RecipesController {
         Recipes newRecipe = recipeService.saveRecipe(recipe);
     }
 
-    @DeleteMapping(path = "{recipeId}")
+    @DeleteMapping(path = "{recipeID}")
     public void removeRecipe(
-            @PathVariable("recipeId")Long recipeId) {
+            @PathVariable("recipeID")Integer recipeId) {
         recipeService.removeRecipe(recipeId);
     }
 }
