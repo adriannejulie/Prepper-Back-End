@@ -30,6 +30,11 @@ public class RecipesController {
         return recipeService.getRecipe(recipeID);
     }
 
+    @GetMapping("/getAllRecipes")
+    public List<Recipes> getAllRecipes() {
+        return recipeService.getAllRecipes();
+    }
+
     @PostMapping("/addRecipe")
     public void addRecipe(@RequestBody Recipes recipe) {
 
@@ -40,5 +45,10 @@ public class RecipesController {
     public void removeRecipe(
             @PathVariable("recipeID")Integer recipeId) {
         recipeService.removeRecipe(recipeId);
+    }
+
+    @PutMapping()
+    public void updateRecipe(Recipes recipe) {
+        recipeService.updateRecipe(recipe);
     }
 }

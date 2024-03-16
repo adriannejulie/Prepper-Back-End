@@ -25,6 +25,10 @@ public class RecipesService {
     public List<Recipes> getPublicRecipes() {
         return recipesRepository.findByIsPublic(true);
     }
+
+    public List<Recipes> getAllRecipes() {
+        return recipesRepository.findAll();
+    }
     public Recipes saveRecipe(Recipes recipe) {
         return recipesRepository.save(recipe);
     }
@@ -37,5 +41,9 @@ public class RecipesService {
             );
         }
         recipesRepository.deleteById(recipeId);
+    }
+
+    public void updateRecipe(Recipes recipe) {
+        recipesRepository.save(recipe);
     }
 }

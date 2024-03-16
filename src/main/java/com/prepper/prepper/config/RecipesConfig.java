@@ -37,7 +37,7 @@ public class RecipesConfig {
                     "1. Toss ingredients with dressing in a large bowl",
                     5,
                     100,
-                    0,
+                    1,
                     true,
                     2
             );
@@ -51,7 +51,7 @@ public class RecipesConfig {
                     "1. Preheat and grease skillet 2. Mix flour, salt, baking soda. Then add egg, buttermilk, and butter. Batter should look thick, spongy, and puffy.  3. Drop 1/3 cup of batter, spread lightly, cook until lightly browned on each side, 1-2 minutes per side.",
                     30,
                     210,
-                    0,
+                    1,
                     false,
                     2
             );
