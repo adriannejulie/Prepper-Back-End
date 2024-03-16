@@ -22,8 +22,8 @@ public class MealPlans {
     private String type;
 
     // constructor for MealPlans, will be used in config
-    public MealPlans(Integer mealPlanID, LocalDate date, Integer userID, Integer recipeID, String type) {
-        this.mealPlanID = mealPlanID;
+    public MealPlans(LocalDate date, Integer userID, Integer recipeID, String type) {
+
         this.date = date;
         this.userID = userID;
         this.recipeID = recipeID;
