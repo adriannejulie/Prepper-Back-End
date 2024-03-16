@@ -19,5 +19,23 @@ public class SavedRecipes {
     public SavedRecipes() {
     }
 
+    public Integer getRecipeID() {
+        return recipeID;
+    }
 
+    public Integer getID() {
+        return id;
+    }
+
+    public void setRecipeID(Integer recipeID) {
+        this.recipeID = recipeID;
+    }
+
+    public Integer getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Integer userID) {
+        this.userID = userID;
+    }
 }

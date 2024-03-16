@@ -132,4 +132,25 @@ public class Recipes {
         this.isPublic = isPublic;
     }
 
+    public void setSaves(Integer n) {
+        saves+=n;
+    }
+
+    @Override
+    public String toString() {
+        return "Recipes{" +
+                "recipeID=" + recipeID +
+                ", title='" + title + '\'' +
+                ", imageURL='" + imageURL + '\'' +
+                ", measurements='" + measurements + '\'' +
+                ", ingredients='" + ingredients + '\'' +
+                ", description='" + description + '\'' +
+                ", instructions='" + instructions + '\'' +
+                ", prepTime=" + prepTime +
+                ", calories=" + calories +
+                ", saves=" + saves +
+                ", isPublic=" + isPublic +
+                ", userID=" + userID +
+                '}';
+    }
 }
