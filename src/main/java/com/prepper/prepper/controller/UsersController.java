@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Objects;
 
 @RestController
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("http://localhost:3000")
 public class UsersController {
     @Autowired
     private UsersService userService;
@@ -32,8 +32,8 @@ public class UsersController {
                     .build();
         }
     }
-    @GetMapping("/login/{email}")
-    public ResponseEntity<Users> getUserByEmail(@PathVariable String email, @RequestBody String password, @RequestBody Boolean isGoogle) {
+    @GetMapping("/login")
+    public ResponseEntity<Users> getUserByEmail(@RequestParam String email, @RequestParam String password, @RequestParam Boolean isGoogle) {
         Users user = userService.getAccountByEmailAddress(email);
         if (isGoogle){
             if ( user != null ) {
