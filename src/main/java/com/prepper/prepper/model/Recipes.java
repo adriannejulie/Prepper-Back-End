@@ -21,9 +21,9 @@ public class Recipes {
 
     private String instructions;
 
-    private Integer prepTime;
+    private String prepTime;
 
-    private Integer calories;
+    private String calories;
 
     private Integer saves;
 
@@ -31,7 +31,7 @@ public class Recipes {
 
     private Integer userID;
 
-    public Recipes(String image, String title, String measurements, String ingredients, String description, String instructions, Integer prepTime, Integer calories, Integer saves, boolean isPublic, Integer userID) {
+    public Recipes(String image, String title, String measurements, String ingredients, String description, String instructions, String prepTime, String calories, Integer saves, boolean isPublic, Integer userID) {
         this.title = title;
         this.image = image;
         this.measurements = measurements;
@@ -75,11 +75,11 @@ public class Recipes {
         return instructions;
     }
 
-    public Integer getPrepTime() {
+    public String getPrepTime() {
         return prepTime;
     }
 
-    public Integer getCalories() {
+    public String getCalories() {
         return calories;
     }
 
@@ -120,11 +120,11 @@ public class Recipes {
         this.instructions = instructions;
     }
 
-    public void setPrepTime(Integer prepTime) {
+    public void setPrepTime(String prepTime) {
         this.prepTime = prepTime;
     }
 
-    public void setCalories(Integer calories) {
+    public void setCalories(String calories) {
         this.calories = calories;
     }
 

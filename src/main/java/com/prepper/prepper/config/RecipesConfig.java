@@ -21,8 +21,8 @@ public class RecipesConfig {
                     "fettuccine pasta, cream cheese, butter, milk, garlic powder, chicken breast(cooked)",
                     "Delicious homemade chicken alfredo",
                     "1. Boil pasta, cook for 8-10 minutes 2. While pasta is cooking, melt cream cheese and butter in skillet over low heat. Stir until smooth. Stir in milk, and season with garlic powder, salt and pepper.",
-                    40,
-                    645,
+                    "40",
+                    "645",
                     0,
                     true,
                     1
@@ -35,8 +35,8 @@ public class RecipesConfig {
                     "baby spinach, medium apple(sliced), celery(chopped), pecans, dressing",
                     "Healthy green salad",
                     "1. Toss ingredients with dressing in a large bowl",
-                    5,
-                    100,
+                    "5",
+                    "100",
                     1,
                     true,
                     2
@@ -49,8 +49,8 @@ public class RecipesConfig {
                     "flour, salt, baking soda, large egg, buttermilk, butter(melted), Syrup(Optional)",
                     "Yummy Buttermilk pancakes",
                     "1. Preheat and grease skillet 2. Mix flour, salt, baking soda. Then add egg, buttermilk, and butter. Batter should look thick, spongy, and puffy.  3. Drop 1/3 cup of batter, spread lightly, cook until lightly browned on each side, 1-2 minutes per side.",
-                    30,
-                    210,
+                    "30",
+                    "210",
                     1,
                     false,
                     2
