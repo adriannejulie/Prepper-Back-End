@@ -21,45 +21,55 @@ public class UsersController {
     public ResponseEntity<Users> addUser(@RequestBody Users user) {
         Users email = userService.getAccountByEmailAddress(user.getEmail());
         
-        if (email == null) {
+
+        if (email.getEmail() != null) {
+            if (email.isGoogle() == true){
+                if ( user != null ) {
+                    this.user = user;
+                    return ResponseEntity
+                            .status(java.net.HttpURLConnection.HTTP_OK)
+                            .body(user);
+                }
+            } else {
+                    return ResponseEntity
+                        .status(java.net.HttpURLConnection.HTTP_CONFLICT)
+                        .body(email);
+            }
+        }
+        if (email.getEmail() ==  null){
             Users newUser = userService.saveUser(user);
             user = newUser;
             return ResponseEntity
-                    .ok()
-                    .body(newUser);
-        } else {
-            HttpHeaders headers = new HttpHeaders();
-            headers.add("Email address already exists", "Email Address: " + email.getEmail());
-            return ResponseEntity
-                    .badRequest()
-                    .headers(headers)
-                    .build();
-        }
+                .status(java.net.HttpURLConnection.HTTP_OK)
+                .body(newUser);
+        } 
+        return null;
     }
+
     @GetMapping("/login")
     public ResponseEntity<Users> getUserByEmail(@RequestParam String email, @RequestParam String password, @RequestParam Boolean isGoogle) {
         Users user = userService.getAccountByEmailAddress(email);
-        if (isGoogle){
-            if ( user != null ) {
-                this.user = user;
+        if (user.getEmail() != null){
+            if (user.isGoogle()){
                 return ResponseEntity
-                        .ok()
-                        .body(user);
-            }
-        } else {
-            if (Objects.equals(user.getPassword(), password)) {
-                this.user = user;
-                return ResponseEntity
-                        .ok()
-                        .body(user);
-            } else {
-                HttpHeaders headers = new HttpHeaders();
-                return ResponseEntity
-                        .badRequest()
+                    .status(java.net.HttpURLConnection.HTTP_CONFLICT)
+                    .header("User does not exist", "Email: " + String.valueOf(email))
+                    .build();
+            } else if (!user.isGoogle()){
+                if (Objects.equals(user.getPassword(), password)) {
+                    this.user = user;
+                    return ResponseEntity
+                            .ok()
+                            .body(user);
+                } else {
+                    return ResponseEntity
+                        .status(java.net.HttpURLConnection.HTTP_UNAUTHORIZED)
                         .header("User does not exist", "Email: " + String.valueOf(email))
                         .build();
+                }
             }
         }
+        
         return null;
     }
         
@@ -94,5 +104,24 @@ public class UsersController {
                         .body(this.user);
             }
         }
-
+    
+    @DeleteMapping("/deleteUser")
+    public ResponseEntity<Users> DeleteUser(@RequestBody int userID) {
+        Users email = userService.getAccountByEmailAddress(user.getEmail());
+        
+        if (email == null) {
+            Users newUser = userService.saveUser(user);
+            user = newUser;
+            return ResponseEntity
+                    .ok()
+                    .body(newUser);
+        } else {
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Email address already exists", "Email Address: " + email.getEmail());
+            return ResponseEntity
+                    .badRequest()
+                    .headers(headers)
+                    .build();
+        }
+    }
 }
