@@ -45,7 +45,9 @@ public class RecipesService {
         return recipe;
     }
 
-    public void updateRecipe(Recipes recipe) {
+    public Recipes updateRecipe(Recipes recipe) {
+
         recipesRepository.save(recipe);
+        return recipesRepository.findByRecipeID(recipe.getRecipeID());
     }
 }

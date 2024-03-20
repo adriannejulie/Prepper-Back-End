@@ -63,8 +63,11 @@ public class RecipesController {
                 .body(recipeToDelete);
     }
 
-    @PutMapping()
-    public void updateRecipe(Recipes recipe) {
-        recipeService.updateRecipe(recipe);
+    @PutMapping("/updateRecipe")
+    public ResponseEntity<Recipes> updateRecipe(@RequestBody Recipes recipe) {
+        Recipes updatedRecipe = recipeService.updateRecipe(recipe);
+        return ResponseEntity
+                .ok()
+                .body(updatedRecipe);
     }
 }

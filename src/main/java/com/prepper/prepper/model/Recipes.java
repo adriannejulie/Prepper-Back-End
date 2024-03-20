@@ -25,7 +25,7 @@ public class Recipes {
 
     private String calories;
 
-    private Integer saves;
+    private Integer saves=0;
 
     private boolean isPublic;
 
