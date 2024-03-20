@@ -22,21 +22,22 @@ public class UsersController {
         Users email = userService.getAccountByEmailAddress(user.getEmail());
         
 
-        if (email.getEmail() != null) {
-            if (email.isGoogle() == true){
+        if (email != null) {
+            if (email.isGoogle() == user.isGoogle() && (!email.getEmail().equals(email.getEmail()) || email.isGoogle())){
                 if ( user != null ) {
-                    this.user = user;
+                    this.user = email;
                     return ResponseEntity
                             .status(java.net.HttpURLConnection.HTTP_OK)
-                            .body(user);
+                            .header("User does not exist", "Email: " + String.valueOf(email.getEmail()) + "Google: " + String.valueOf(email.isGoogle()))
+                            .body(email);
                 }
-            } else {
+            } else {    
                     return ResponseEntity
                         .status(java.net.HttpURLConnection.HTTP_CONFLICT)
-                        .body(email);
+                        .body(user);
             }
         }
-        if (email.getEmail() ==  null){
+        if (email ==  null){
             Users newUser = userService.saveUser(user);
             user = newUser;
             return ResponseEntity
@@ -49,7 +50,7 @@ public class UsersController {
     @GetMapping("/login")
     public ResponseEntity<Users> getUserByEmail(@RequestParam String email, @RequestParam String password, @RequestParam Boolean isGoogle) {
         Users user = userService.getAccountByEmailAddress(email);
-        if (user.getEmail() != null){
+        if (user != null){
             if (user.isGoogle()){
                 return ResponseEntity
                     .status(java.net.HttpURLConnection.HTTP_CONFLICT)
