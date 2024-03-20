@@ -15,7 +15,7 @@ public class RecipesConfig {
             RecipesRepository repository) {
         return args -> {
             Recipes pasta = new Recipes(
-                    null,
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
                     "Chicken Alfredo Pasta",
                     "6 ounce, 8 ounce, 6 tbsp, 1/2 cup, 1/2 tsp, 2",
                     "fettuccine pasta, cream cheese, butter, milk, garlic powder, chicken breast(cooked)",
@@ -29,7 +29,7 @@ public class RecipesConfig {
             );
 
             Recipes salad = new Recipes(
-                    null,
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
                     "Apple Spinach Salad",
                     "2 cups, 1, 2 tbsp, 2 tbsp, 2 tbsp",
                     "baby spinach, medium apple(sliced), celery(chopped), pecans, dressing",
@@ -43,7 +43,7 @@ public class RecipesConfig {
             );
 
             Recipes pancake = new Recipes(
-                    null,
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
                     "Buttermilk Pancakes",
                     "1 cup, 1 tsp, 1 tsp, 1, 1 1/8 cup, 2 tbsp, null",
                     "flour, salt, baking soda, large egg, buttermilk, butter(melted), Syrup(Optional)",

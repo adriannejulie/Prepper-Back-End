@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Objects;
 
 @RestController
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("http://localhost:3000")
 public class UsersController {
     @Autowired
     private UsersService userService;

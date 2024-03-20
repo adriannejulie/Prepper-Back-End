@@ -11,7 +11,7 @@ public class Recipes {
 
     private String title;
 
-    private String imageURL;
+    private String image;
 
     private String measurements;
 
@@ -31,9 +31,9 @@ public class Recipes {
 
     private Integer userID;
 
-    public Recipes(String imageURL, String title, String measurements, String ingredients, String description, String instructions, Integer prepTime, Integer calories, Integer saves, boolean isPublic, Integer userID) {
+    public Recipes(String image, String title, String measurements, String ingredients, String description, String instructions, Integer prepTime, Integer calories, Integer saves, boolean isPublic, Integer userID) {
         this.title = title;
-        this.imageURL = imageURL;
+        this.image = image;
         this.measurements = measurements;
         this.ingredients = ingredients;
         this.description = description;
@@ -51,8 +51,8 @@ public class Recipes {
         return recipeID;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImage() {
+        return image;
     }
 
     public String getTitle() {
@@ -96,8 +96,8 @@ public class Recipes {
     }
 
     // Setters
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setTitle(String title) {
@@ -141,7 +141,7 @@ public class Recipes {
         return "Recipes{" +
                 "recipeID=" + recipeID +
                 ", title='" + title + '\'' +
-                ", imageURL='" + imageURL + '\'' +
+                ", imageURL='" + image + '\'' +
                 ", measurements='" + measurements + '\'' +
                 ", ingredients='" + ingredients + '\'' +
                 ", description='" + description + '\'' +
