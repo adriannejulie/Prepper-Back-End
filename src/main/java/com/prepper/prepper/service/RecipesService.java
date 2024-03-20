@@ -33,14 +33,16 @@ public class RecipesService {
         return recipesRepository.save(recipe);
     }
 
-    public void removeRecipe(Integer recipeId) {
+    public Recipes removeRecipe(Integer recipeId) {
         boolean exists = recipesRepository.existsById(recipeId);
         if (!exists) {
             throw new IllegalStateException(
                     "Recipe with id " + recipeId + " does not exists"
             );
         }
+        Recipes recipe = recipesRepository.getReferenceById(recipeId);
         recipesRepository.deleteById(recipeId);
+        return recipe;
     }
 
     public void updateRecipe(Recipes recipe) {
