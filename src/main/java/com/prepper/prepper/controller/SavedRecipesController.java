@@ -2,8 +2,12 @@ package com.prepper.prepper.controller;
 
 import com.prepper.prepper.model.Recipes;
 import com.prepper.prepper.model.SavedRecipes;
+import com.prepper.prepper.model.Users;
+import com.prepper.prepper.repository.SavedRecipesRepository;
 import com.prepper.prepper.service.SavedRecipesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +19,9 @@ public class SavedRecipesController {
     @Autowired
     private SavedRecipesService savedRecipeService;
 
+    @Autowired
+    private SavedRecipesRepository savedRecipesRepository;
+
     @GetMapping("/getSavedRecipes/{userID}")
     public List<Recipes> getSavedRecipe(@PathVariable Integer userID) {
 
@@ -22,11 +29,31 @@ public class SavedRecipesController {
     }
 
     @PostMapping("/addSavedRecipe")
-    public void addSavedRecipe(@RequestBody SavedRecipes saveRecipe  ) {
-        SavedRecipes newSavedRecipe = savedRecipeService.saveRecipe(saveRecipe);
+    public ResponseEntity<SavedRecipes> addSavedRecipe(@RequestBody SavedRecipes saveRecipe  ) {
+        List<SavedRecipes> savedRecipes = savedRecipesRepository.findByUserID(saveRecipe.getUserID());
+        boolean exists = false;
 
-
+        for (SavedRecipes recipe : savedRecipes) {
+            if (recipe.getRecipeID().equals(saveRecipe.getRecipeID())) {
+                 exists = true;
+                 break;
+            }
+        }
+        if (exists) {
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Recipe already saved.", "RecipeID: " + saveRecipe.getRecipeID());
+            return ResponseEntity
+                    .badRequest()
+                    .headers(headers)
+                    .build();
+        } else {
+            SavedRecipes newSavedRecipe = savedRecipeService.saveRecipe(saveRecipe);
+            return ResponseEntity
+                    .ok()
+                    .body(newSavedRecipe);
+        }
     }
+
     @DeleteMapping(path = "/removeSavedRecipe/{userID}-{recipeID}")
     public void removeRecipe(
             @PathVariable("userID") Integer userId,
