@@ -36,7 +36,7 @@ public class SavedRecipesService {
         return savedRecipesRepository.save(savedRecipe);
     }
 
-    public void removeSavedRecipe(Integer userId, Integer recipeId) {
+    public boolean removeSavedRecipe(Integer userId, Integer recipeId) {
         List<SavedRecipes> savedRecipes = savedRecipesRepository.findByUserID(userId);
         for (SavedRecipes recipe : savedRecipes) {
             if (recipe.getRecipeID().equals(recipeId)) {
@@ -45,17 +45,10 @@ public class SavedRecipesService {
                 Recipes update = recipesService.getRecipe(recipeId);
                 update.setSaves(-1);
                 recipesService.updateRecipe(update);
-                break;
+                return true;
             }
         }
-
-
-
-
-
-
-
-
+        return false;
 
     }
 
