@@ -1,6 +1,7 @@
 package com.prepper.prepper.controller;
 import com.prepper.prepper.service.UsersService;
 import com.prepper.prepper.model.Users;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +15,15 @@ import java.util.Objects;
 public class UsersController {
     @Autowired
     private UsersService userService;
+    private Users user;
 
     @PostMapping("/addUser")
     public ResponseEntity<Users> addUser(@RequestBody Users user) {
         Users email = userService.getAccountByEmailAddress(user.getEmail());
+        
         if (email == null) {
             Users newUser = userService.saveUser(user);
+            user = newUser;
             return ResponseEntity
                     .ok()
                     .body(newUser);
@@ -37,12 +41,14 @@ public class UsersController {
         Users user = userService.getAccountByEmailAddress(email);
         if (isGoogle){
             if ( user != null ) {
+                this.user = user;
                 return ResponseEntity
                         .ok()
                         .body(user);
             }
         } else {
             if (Objects.equals(user.getPassword(), password)) {
+                this.user = user;
                 return ResponseEntity
                         .ok()
                         .body(user);
@@ -58,10 +64,11 @@ public class UsersController {
     }
         
     @GetMapping("/userData/{email}")
-    public ResponseEntity<Object> getUserData(@PathVariable String email){
+    public ResponseEntity<Object> getUserWithEmail(@PathVariable String email){
             Users user = userService.getAccountByEmailAddress(email);
             if ( user == null) {
                 HttpHeaders headers = new HttpHeaders();
+                this.user = user;
                 return ResponseEntity
                         .noContent()
                         .header("User does not exist", "Email: " + String.valueOf(email))
@@ -72,4 +79,20 @@ public class UsersController {
                         .body(user);
             }
         }
+
+    @GetMapping("/userData")
+    public ResponseEntity<Object> getUserData(){
+            if ( this.user == null) {
+                HttpHeaders headers = new HttpHeaders();
+                return ResponseEntity
+                        .noContent()
+                        .header("User has not been assigned not exist")
+                        .build();
+            } else {
+                return ResponseEntity
+                        .ok()
+                        .body(this.user);
+            }
+        }
+
 }
