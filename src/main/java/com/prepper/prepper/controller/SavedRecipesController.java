@@ -23,9 +23,21 @@ public class SavedRecipesController {
     private SavedRecipesRepository savedRecipesRepository;
 
     @GetMapping("/getSavedRecipes/{userID}")
-    public List<Recipes> getSavedRecipe(@PathVariable Integer userID) {
-
-        return savedRecipeService.getSavedRecipes(userID);
+    public ResponseEntity<List<Recipes>> getSavedRecipe(@PathVariable Integer userID) {
+        List<Recipes> recipes = savedRecipeService.getSavedRecipes(userID);
+        if (recipes != null) {
+            return ResponseEntity
+                    .ok()
+                    .body(recipes);
+        }
+        else {
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("No saved recipes exist", "userID: " + userID);
+            return ResponseEntity
+                    .badRequest()
+                    .headers(headers)
+                    .build();
+        }
     }
 
     @PostMapping("/addSavedRecipe")
@@ -55,10 +67,22 @@ public class SavedRecipesController {
     }
 
     @DeleteMapping(path = "/removeSavedRecipe/{userID}-{recipeID}")
-    public void removeRecipe(
+    public ResponseEntity<Object> removeRecipe(
             @PathVariable("userID") Integer userId,
             @PathVariable("recipeID")Integer recipeId
             ) {
-        savedRecipeService.removeSavedRecipe(userId, recipeId);
+        boolean removed = savedRecipeService.removeSavedRecipe(userId, recipeId);
+        if (removed) {
+            return ResponseEntity
+                    .ok().build();
+        }
+        else {
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Error in removing saved recipe.", "RecipeID: " + recipeId);
+            return ResponseEntity
+                    .badRequest()
+                    .headers(headers)
+                    .build();
+        }
     }
 }
