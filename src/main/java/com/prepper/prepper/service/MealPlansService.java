@@ -25,7 +25,9 @@ public class MealPlansService {
     }
 
     // function to delete a meal plan from the database
-    public void deleteMealPlan(Integer mealPlanID) {
+    public MealPlans deleteMealPlan(Integer mealPlanID) {
+        MealPlans planToDelete = mpRepository.getReferenceById(mealPlanID);
         mpRepository.deleteById(mealPlanID);
+        return planToDelete;
     }
 }
