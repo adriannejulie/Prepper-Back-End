@@ -21,5 +21,17 @@ public class UsersService {
     public Users getAccountByEmailAddress(String email) {
         return usersRepository.findByEmail(email);
     }
+
+    public Users deleteUserByEmail(String email) {
+        Users userToDelete = usersRepository.findByEmail(email);
+    
+        if (userToDelete != null) {
+            usersRepository.delete(userToDelete);
+            return userToDelete; // Indicate successful deletion
+        } else {
+            return userToDelete; // Indicate user with given ID not found
+        }
+    }
+    
     
 }
