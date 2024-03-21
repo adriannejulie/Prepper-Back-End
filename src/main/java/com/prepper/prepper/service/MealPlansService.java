@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MealPlansService {
@@ -25,8 +26,8 @@ public class MealPlansService {
     }
 
     // function to delete a meal plan from the database
-    public MealPlans deleteMealPlan(Integer mealPlanID) {
-        MealPlans planToDelete = mpRepository.getReferenceById(mealPlanID);
+    public Optional<MealPlans> deleteMealPlan(Integer mealPlanID) {
+        Optional<MealPlans> planToDelete = mpRepository.findById(mealPlanID);
         mpRepository.deleteById(mealPlanID);
         return planToDelete;
     }
