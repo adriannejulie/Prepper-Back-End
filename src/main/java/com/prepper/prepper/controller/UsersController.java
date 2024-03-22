@@ -1,5 +1,6 @@
 package com.prepper.prepper.controller;
 import com.prepper.prepper.service.UsersService;
+import com.prepper.prepper.model.MealPlans;
 import com.prepper.prepper.model.Users;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -124,5 +125,23 @@ public class UsersController {
                     .headers(headers)
                     .build();
         }
+    }
+
+    @DeleteMapping("/users/{email}")
+    public ResponseEntity<String> deleteUser(@PathVariable("email") String email) {
+
+        Users userToDelete =  userService.deleteUserByEmail(email);
+
+        if (userToDelete != null){
+            return ResponseEntity
+                    .status(java.net.HttpURLConnection.HTTP_OK)
+                                    .body(userToDelete.toString());
+            
+        } else {
+        return ResponseEntity
+                .status(java.net.HttpURLConnection.HTTP_GONE)
+                .body(email);
+        }
+
     }
 }
