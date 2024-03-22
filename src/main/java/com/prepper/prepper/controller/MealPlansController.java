@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin("http://localhost:3000")
@@ -43,10 +44,18 @@ public class MealPlansController {
     }
 
     @DeleteMapping("/removeMealPlan/{mealPlanID}")
-    public ResponseEntity<MealPlans> removeMealPlan(@PathVariable("mealPlanID") Integer mealPlanID) {
-        MealPlans planToDelete =  mpService.deleteMealPlan(mealPlanID);
+    public ResponseEntity<Optional<MealPlans>> removeMealPlan(@PathVariable("mealPlanID") Integer mealPlanID) {
+        Optional<MealPlans> planToDelete =  mpService.deleteMealPlan(mealPlanID);
         return ResponseEntity
                 .ok()
                 .body(planToDelete);
+    }
+
+    @PutMapping("/editMealPlan/{mealPlanID}")
+    public ResponseEntity<MealPlans> editMealPlan(@RequestBody MealPlans mealPlan, @PathVariable Integer mealPlanID) {
+        MealPlans updatedMealPlan = mpService.saveMealPlan(mealPlan);
+        return ResponseEntity
+                .ok()
+                .body(updatedMealPlan);
     }
 }
