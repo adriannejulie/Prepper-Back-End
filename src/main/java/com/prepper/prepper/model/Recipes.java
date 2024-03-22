@@ -13,12 +13,16 @@ public class Recipes {
 
     private String image;
 
+    @Column(columnDefinition="TEXT")
     private String measurements;
 
+    @Column(columnDefinition="TEXT")
     private String ingredients;
 
+    @Column(columnDefinition="TEXT")
     private String description;
 
+    @Column(columnDefinition="TEXT")
     private String instructions;
 
     private String prepTime;

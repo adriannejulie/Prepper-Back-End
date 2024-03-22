@@ -21,11 +21,35 @@ public class SavedRecipesConfig {
                     1
             );
             SavedRecipes saved2 = new SavedRecipes(
-                    3,
+                    5,
+                    1
+            );
+            SavedRecipes saved3 = new SavedRecipes(
+                    5,
+                    2
+            );
+
+            SavedRecipes saved4 = new SavedRecipes(
+                    7,
+                    2
+            );
+
+            SavedRecipes saved5 = new SavedRecipes(
+                    7,
+                    3
+            );
+
+            SavedRecipes saved6 = new SavedRecipes(
+                    7,
+                    4
+            );
+
+            SavedRecipes saved7 = new SavedRecipes(
+                    8,
                     1
             );
             repository.saveAll(
-                    List.of(saved1, saved2)
+                    List.of(saved1, saved2, saved3, saved4, saved5, saved6, saved7)
             );
         };
     }
