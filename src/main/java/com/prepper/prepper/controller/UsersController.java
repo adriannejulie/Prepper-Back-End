@@ -106,6 +106,22 @@ public class UsersController {
                         .body(this.user);
             }
         }
+
+    @GetMapping("/getUser/{userID}")
+    public ResponseEntity<Users> getUserByID(@PathVariable String userID){
+        Users user = userService.getUserById(userID);
+        if ( user == null) {
+            HttpHeaders headers = new HttpHeaders();
+            return ResponseEntity
+                    .noContent()
+                    .header("User has not been assigned not exist")
+                    .build();
+        } else {
+            return ResponseEntity
+                    .ok()
+                    .body(user);
+        }
+    }
     
     @DeleteMapping("/deleteUser")
     public ResponseEntity<Users> DeleteUser(@RequestBody int userID) {
