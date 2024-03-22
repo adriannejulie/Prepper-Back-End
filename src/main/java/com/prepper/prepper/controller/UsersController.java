@@ -62,17 +62,22 @@ public class UsersController {
                     this.user = user;
                     return ResponseEntity
                             .ok()
+                            .header("User exists", "Email: " + String.valueOf(email))
                             .body(user);
+                            
                 } else {
                     return ResponseEntity
                         .status(java.net.HttpURLConnection.HTTP_UNAUTHORIZED)
-                        .header("User does not exist", "Email: " + String.valueOf(email))
+                        .header("Password does not match", "Email: " + String.valueOf(email))
                         .build();
                 }
             }
         }
         
-        return null;
+        return ResponseEntity
+        .status(java.net.HttpURLConnection.HTTP_NOT_FOUND)
+        .header("User does not exist", "Email: " + String.valueOf(email))
+        .build();
     }
         
     @GetMapping("/userData/{email}")
