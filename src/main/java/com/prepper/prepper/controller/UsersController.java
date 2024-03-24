@@ -1,4 +1,9 @@
 package com.prepper.prepper.controller;
+import com.prepper.prepper.model.Recipes;
+import com.prepper.prepper.model.SavedRecipes;
+import com.prepper.prepper.service.MealPlansService;
+import com.prepper.prepper.service.RecipesService;
+import com.prepper.prepper.service.SavedRecipesService;
 import com.prepper.prepper.service.UsersService;
 import com.prepper.prepper.model.MealPlans;
 import com.prepper.prepper.model.Users;
@@ -9,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -16,6 +22,15 @@ import java.util.Objects;
 public class UsersController {
     @Autowired
     private UsersService userService;
+
+    @Autowired
+    private RecipesService recipesService;
+
+    @Autowired
+    private MealPlansService mpService;
+
+    @Autowired
+    private SavedRecipesService savedRecipesService;
     private Users user;
 
     @PostMapping("/addUser")
@@ -152,6 +167,23 @@ public class UsersController {
     public ResponseEntity<String> deleteUser(@PathVariable("email") String email) {
 
         Users userToDelete =  userService.deleteUserByEmail(email);
+        Integer userID = userToDelete.getUserID().intValue();
+
+        List<Recipes> recipesToDelete = recipesService.getRecipesByUser(userID);
+        List<MealPlans> mealPlansToDelete = mpService.getMealPlansByUser(userID);
+        List<SavedRecipes> savedRecipesToDelete = savedRecipesService.getSavedRecipesByUser(userID);
+
+        for (Recipes recipes : recipesToDelete) {
+            recipesService.removeRecipe(recipes.getRecipeID());
+        }
+
+        for (MealPlans mealPlans : mealPlansToDelete) {
+            mpService.deleteMealPlan(mealPlans.getMealPlanID());
+        }
+
+        for (SavedRecipes savedRecipe : savedRecipesToDelete) {
+            savedRecipesService.removeSavedRecipe(savedRecipe.getUserID(), savedRecipe.getRecipeID());
+        }
 
         if (userToDelete != null){
             return ResponseEntity

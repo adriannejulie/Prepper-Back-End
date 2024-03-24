@@ -52,4 +52,12 @@ public class SavedRecipesService {
 
     }
 
+    public List<SavedRecipes> getSavedRecipesByUser(Integer userID){
+        return savedRecipesRepository.findByUserID(userID);
+    }
+
+    public List<SavedRecipes> getSavedRecipesByRecipe(Integer recipeID){
+        return savedRecipesRepository.findByRecipeID(recipeID);
+    }
+
 }

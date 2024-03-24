@@ -1,6 +1,8 @@
 package com.prepper.prepper.service;
 
+import com.prepper.prepper.model.MealPlans;
 import com.prepper.prepper.model.Recipes;
+import com.prepper.prepper.model.SavedRecipes;
 import com.prepper.prepper.repository.RecipesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,12 @@ import java.util.List;
 public class RecipesService {
     @Autowired
     private RecipesRepository recipesRepository;
+
+    @Autowired
+    private MealPlansService mpService;
+
+    @Autowired
+    private SavedRecipesService savedRecipesService;
 
     public List<Recipes> getRecipesByUser(Integer userId) {
 
@@ -41,6 +49,17 @@ public class RecipesService {
             );
         }
         Recipes recipe = recipesRepository.getReferenceById(recipeId);
+
+        List<MealPlans> mealPlansToDelete = mpService.getMealPlansByRecipe(recipeId);
+        List<SavedRecipes> savedRecipesToDelete = savedRecipesService.getSavedRecipesByRecipe(recipeId);
+
+        for (MealPlans mealPlans : mealPlansToDelete) {
+            mpService.deleteMealPlan(mealPlans.getMealPlanID());
+        }
+
+        for (SavedRecipes savedRecipe : savedRecipesToDelete) {
+            savedRecipesService.removeSavedRecipe(savedRecipe.getUserID(), savedRecipe.getRecipeID());
+        }
         recipesRepository.deleteById(recipeId);
         return recipe;
     }

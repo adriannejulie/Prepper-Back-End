@@ -31,4 +31,14 @@ public class MealPlansService {
         mpRepository.deleteById(mealPlanID);
         return planToDelete;
     }
+
+    // function to get meal plans by user id
+    public List<MealPlans> getMealPlansByUser(Integer userID) {
+        return mpRepository.getByUserID(userID);
+    }
+
+    // function to get meal plans by recipe id
+    public List<MealPlans> getMealPlansByRecipe(Integer recipeID) {
+        return mpRepository.getByRecipeID(recipeID);
+    }
 }
