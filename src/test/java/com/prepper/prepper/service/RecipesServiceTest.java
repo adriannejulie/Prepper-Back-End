@@ -16,6 +16,7 @@ import static org.mockito.Mockito.*;
 public class RecipesServiceTest {
 
     private Recipes recipe1;
+    private Recipes recipe2;
     private List<Recipes> recipesByUser1;
     private List<Recipes> publicRecipes;
     @Mock
@@ -33,7 +34,7 @@ public class RecipesServiceTest {
                 "Description 1", "Instructions 1", "30", "500",
                 0, true, 1);
 
-        Recipes recipe2 = new Recipes("image2.jpg", "Recipe 2", "Measurements 2", "Ingredients 2",
+        recipe2 = new Recipes("image2.jpg", "Recipe 2", "Measurements 2", "Ingredients 2",
                 "Description 2", "Instructions 2", "45", "700",
                 0, false, 1);
 
@@ -109,12 +110,13 @@ public class RecipesServiceTest {
 
     @Test
     public void updateRecipe_Should_Return_UpdatedRecipe() {
+
         Recipes updatedRecipe = new Recipes("image2.jpg", "Recipe 2-2", "Measurements 2", "Ingredients 2",
                 "Description 2", "Instructions 2", "15", "70",
                 0, false, 1);
 
         when(recipesRepository.save(updatedRecipe)).thenReturn(updatedRecipe);
-        when(recipesRepository.findByRecipeID(anyInt())).thenReturn(updatedRecipe);
+        when(recipesRepository.findByRecipeID(recipe2.getRecipeID())).thenReturn(updatedRecipe);
 
         Recipes update = recipesService.updateRecipe(updatedRecipe);
 
