@@ -10,6 +10,13 @@ import java.util.List;
 @Service
 public class SearchService {
     RecipesRepository recipesRepository;
+
+    /**
+     * Retrieves all recipes given ingredient
+     *
+     * @param ingredient The ingredient to search for
+     * @return A list of recipes containing the given ingredient
+     */
     public List<Recipes> getRecipeByIngredient(String ingredient) {
         List<Recipes> allRecipes = new ArrayList<>();
         allRecipes = recipesRepository.findAll();
