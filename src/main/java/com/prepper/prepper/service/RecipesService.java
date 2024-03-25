@@ -20,27 +20,62 @@ public class RecipesService {
     @Autowired
     private SavedRecipesService savedRecipesService;
 
+    /**
+     *  Retrieves all recipes given userID
+     *
+     * @param userId The userID
+     * @return A list of recipes
+     */
     public List<Recipes> getRecipesByUser(Integer userId) {
 
         return recipesRepository.findByUserID(userId);
     }
 
+    /**
+     *  Retrieves recipe given recipeID
+     *
+     * @param recipeId The recipeID
+     * @return A recipe
+     */
     public Recipes getRecipe(Integer recipeId) {
 
         return recipesRepository.findByRecipeID(recipeId);
     }
 
+    /**
+     *  Retrieves all public recipes
+     *
+     * @return A list of recipes
+     */
     public List<Recipes> getPublicRecipes() {
         return recipesRepository.findByIsPublic(true);
     }
 
+    /**
+     *  Retrieves all recipes in database
+     *
+     * @return A list of recipes
+     */
     public List<Recipes> getAllRecipes() {
         return recipesRepository.findAll();
     }
+
+    /**
+     *  Saves recipe into database
+     *
+     * @param recipe The recipe to be saved
+     * @return Saved recipe
+     */
     public Recipes saveRecipe(Recipes recipe) {
         return recipesRepository.save(recipe);
     }
 
+    /**
+     *  Remove recipe given the recipeID
+     *
+     * @param recipeId RecipeId of the recipe to be removed
+     * @return Referenced recipe
+     */
     public Recipes removeRecipe(Integer recipeId) {
         boolean exists = recipesRepository.existsById(recipeId);
         if (!exists) {
@@ -64,6 +99,12 @@ public class RecipesService {
         return recipe;
     }
 
+    /**
+     *  Updated existing recipe
+     *
+     * @param recipe Updated recipe from user
+     * @return Updated recipe from database
+     */
     public Recipes updateRecipe(Recipes recipe) {
         recipesRepository.save(recipe);
         return recipesRepository.findByRecipeID(recipe.getRecipeID());
