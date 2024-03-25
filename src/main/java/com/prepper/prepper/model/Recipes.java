@@ -2,6 +2,10 @@ package com.prepper.prepper.model;
 
 import jakarta.persistence.*;
 
+/**
+ * This class provides the structure of the Recipes table in the database
+ *
+ */
 @Entity
 public class Recipes {
 
@@ -35,6 +39,9 @@ public class Recipes {
 
     private Integer userID;
 
+    /**
+     * Constructor used for configuration
+     */
     public Recipes(String image, String title, String measurements, String ingredients, String description, String instructions, String prepTime, String calories, Integer saves, boolean isPublic, Integer userID) {
         this.title = title;
         this.image = image;
@@ -48,9 +55,15 @@ public class Recipes {
         this.isPublic = isPublic;
         this.userID = userID;
     }
+
+    /**
+     * Default constructor required by Spring
+     */
     public Recipes() {}
 
-    // Getters
+    /**
+     * Getters and Setters
+     */
     public Integer getRecipeID() {
         return recipeID;
     }
