@@ -20,7 +20,7 @@ public class RecipesConfig {
             RecipesRepository repository) {
         return args -> {
             Recipes pasta = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409102/Screenshot_686_acouik.png",
                     "Chicken Alfredo Pasta",
                     "6 ounce, 8 ounce, 6 tbsp, 1/2 cup, 1/2 tsp, 2",
                     "fettuccine pasta, cream cheese, butter, milk, garlic powder, chicken breast(cooked)",
@@ -34,7 +34,7 @@ public class RecipesConfig {
             );
 
             Recipes salad = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409107/Screenshot_687_esmxun.png",
                     "Apple Spinach Salad",
                     "2 cups, 1, 2 tbsp, 2 tbsp, 2 tbsp",
                     "baby spinach, medium apple(sliced), celery(chopped), pecans, dressing",
@@ -48,7 +48,7 @@ public class RecipesConfig {
             );
 
             Recipes pancake = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711410392/Screenshot_683_z9xhby.png",
                     "Buttermilk Pancakes",
                     "1 cup, 1 tsp, 1 tsp, 1, 1 1/8 cup, 2 tbsp, null",
                     "flour, salt, baking soda, large egg, buttermilk, butter(melted), Syrup(Optional)",
@@ -57,12 +57,12 @@ public class RecipesConfig {
                     "30",
                     "210",
                     0,
-                    false,
+                    true,
                     2
             );
 
             Recipes soup = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409128/Screenshot_688_n8mcvn.png",
                     "Vegetable Soup",
                     "2 cups, 1 cup, 1 cup, 1/2 cup, 1/2 cup, 2 tbsp, 1 tsp, 2, 1",
                     "vegetable broth, carrots(diced), celery(diced), onion(diced), green beans(chopped), tomato(diced), garlic(minced), salt, pepper",
@@ -76,7 +76,7 @@ public class RecipesConfig {
             );
 
             Recipes sandwich = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409117/Screenshot_689_wt6sl6.png",
                     "Turkey Avocado Sandwich",
                     "2 slices, 2 slices, 1/2 avocado, 2 slices, 1/4 cup, 2 tbsp",
                     "whole wheat bread, turkey breast, avocado(sliced), tomato, lettuce, mayonnaise",
@@ -90,7 +90,7 @@ public class RecipesConfig {
             );
 
             Recipes curry = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711410210/Screenshot_697_ldg1i0.png",
                     "Chicken Curry",
                     "1 lb, 1 cup, 1, 1/2 cup, 2 tbsp, 1 tsp, 1 tsp, 1/2 cup",
                     "chicken breast(cubed), coconut milk, onion(chopped), tomato(pureed), curry paste, garlic(minced), ginger(minced), water",
@@ -99,12 +99,12 @@ public class RecipesConfig {
                     "50",
                     "380",
                     0,
-                    false,
+                    true,
                     5
             );
 
             Recipes smoothie = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409133/Screenshot_690_vdfhx2.png",
                     "Berry Blast Smoothie",
                     "1 cup, 1/2 cup, 1/2 cup, 1/4 cup, 1/4 cup",
                     "mixed berries(frozen), banana(sliced), spinach, yogurt, almond milk",
@@ -118,7 +118,7 @@ public class RecipesConfig {
             );
 
             Recipes stirFry = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409139/Screenshot_691_rdwtfv.png",
                     "Vegetable Stir Fry",
                     "2 cups, 1 cup, 1 cup, 1 cup, 1/4 cup, 2 tbsp, 1 tbsp, 2",
                     "mixed vegetables, tofu(cubed), bell pepper(sliced), onion(sliced), soy sauce, vegetable oil, garlic(minced), ginger(minced)",
@@ -132,7 +132,7 @@ public class RecipesConfig {
             );
 
             Recipes omelette = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409144/Screenshot_692_mncxtm.png",
                     "Spinach Mushroom Omelette",
                     "3, 2 tbsp, 1/4 cup, 1/4 cup, 1/4 cup, 1/4 cup, 1/4 cup",
                     "eggs, butter, spinach(chopped), mushrooms(sliced), onion(diced), bell pepper(diced), cheese(grated)",
@@ -146,7 +146,7 @@ public class RecipesConfig {
             );
 
             Recipes tacos = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409147/Screenshot_693_bjxvht.png",
                     "Beef Tacos",
                     "8, 1 lb, 1 cup, 1 cup, 1/4 cup, 1 tbsp, 1 tsp, 1 tsp",
                     "taco shells, ground beef, lettuce(shredded), tomato(diced), cheese(grated), taco seasoning, salt, pepper",
@@ -160,7 +160,7 @@ public class RecipesConfig {
             );
 
             Recipes pizza = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711410223/Screenshot_698_exbsu3.png",
                     "Margherita Pizza",
                     "1 lb, 2 cups, 1/4 cup, 2 tbsp, 1 tbsp, 1 tsp, 1/2 tsp",
                     "pizza dough, mozzarella cheese(sliced), tomato sauce, olive oil, garlic(minced), basil leaves, salt",
@@ -169,12 +169,12 @@ public class RecipesConfig {
                     "30",
                     "300",
                     0,
-                    false,
+                    true,
                     3
             );
 
             Recipes sushi = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409737/Screenshot_694_tjsv1o.png",
                     "California Roll",
                     "1 cup, 1 cup, 2 sheets, 1/2 cup, 1/4 cup, 1/4 cup, 2 tbsp, 1 tbsp, 1 tbsp, 1 tsp",
                     "sushi rice, water, nori sheets, imitation crab meat, cucumber(julienned), avocado(sliced), rice vinegar, sugar, salt, sesame seeds",
@@ -188,7 +188,7 @@ public class RecipesConfig {
             );
 
             Recipes lasagna = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711410201/Screenshot_699_kx6575.png",
                     "Classic Lasagna",
                     "1 lb, 12 ounces, 2 cups, 1/2 cup, 1/4 cup, 2 cloves, 1/2 tsp, 1/4 tsp, 1/4 tsp, 2 cups",
                     "ground beef, lasagna noodles, ricotta cheese, grated parmesan cheese, mozzarella cheese(shredded), garlic(minced), salt, black pepper, dried oregano, marinara sauce",
@@ -197,12 +197,12 @@ public class RecipesConfig {
                     "90",
                     "450",
                     0,
-                    false,
+                    true,
                     5
             );
 
             Recipes burger = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409157/Screenshot_695_jetla2.png",
                     "Classic Beef Burger",
                     "1 lb, 4 slices, 4, 4, 1/4 cup, 1/4 cup, 2 tbsp, 1 tbsp, 1 tsp, to taste",
                     "ground beef, burger buns, lettuce leaves, tomato slices, onion slices, pickles, ketchup, mustard, salt, pepper",
@@ -216,7 +216,7 @@ public class RecipesConfig {
             );
 
             Recipes chickenWrap = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711410196/Screenshot_700_nw65r4.png",
                     "Grilled Chicken Wrap",
                     "1 lb, 4, 4, 1/4 cup, 1/4 cup, 2 tbsp, 2 tbsp, 1 tbsp, 1 tsp, to taste",
                     "chicken breast, whole wheat wraps, lettuce leaves, tomato slices, shredded cheese, ranch dressing, barbecue sauce, olive oil, salt, pepper",
@@ -225,12 +225,12 @@ public class RecipesConfig {
                     "25",
                     "380",
                     0,
-                    false,
+                    true,
                     7
             );
 
             Recipes bakedSalmon = new Recipes(
-                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1709337647/Screenshot_425_asbwjt.png",
+                    "https://res.cloudinary.com/dgabkajhe/image/upload/v1711409162/Screenshot_696_rysm0z.png",
                     "Baked Salmon",
                     "4 fillets, 1/4 cup, 2 tbsp, 1 tbsp, 1 tsp, 1 tsp, to taste",
                     "salmon fillets, soy sauce, honey, olive oil, garlic(minced), lemon juice, salt, pepper",
