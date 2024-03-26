@@ -8,6 +8,11 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+/**
+ * This configures the Recipe Table in database with sample data at startup
+ *
+ */
+
 @Configuration
 public class RecipesConfig {
     @Bean
