@@ -8,6 +8,11 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+/**
+ * This configures the Users Table in database with sample data at startup
+ *
+ */
+
 @Configuration
 public class UsersConfig {
     @Bean

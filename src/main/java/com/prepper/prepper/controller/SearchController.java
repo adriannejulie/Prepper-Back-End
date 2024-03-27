@@ -14,6 +14,12 @@ public class SearchController {
     @Autowired
     private SearchService searchService;
 
+    /**
+     * Searches for Recipes objects that match a list of ingredients
+     * 
+     * @param ingredients
+     * @return List of Recipes Objects, Response Entity codes and headers
+     */
     @GetMapping("/search")
     public ResponseEntity<List<Recipes>> getRecipeByIngredient(@RequestBody List<String> ingredients) {
         List<Recipes> recipes = new ArrayList<>();

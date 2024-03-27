@@ -5,13 +5,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * This class provides the structure of the Users table in the database
+ *
+ */
 @Entity
 @Table
 public class Users {
 
     @Id
     @GeneratedValue
-   
     private Long userID;
 
     private String email;
@@ -24,6 +27,9 @@ public class Users {
 
     private boolean isGoogle;
 
+    /**
+     * Constructor used for configuration
+     */
     public Users(String email, String firstName, String lastName, String password, boolean isGoogle) {
         this.email = email;
         this.firstName = firstName;
@@ -32,10 +38,15 @@ public class Users {
         this.isGoogle = isGoogle;
     }
 
+    /**
+     * Default constructor required by Spring
+     */
     public Users() {
-
     }
 
+    /**
+     * Getters and Setters
+     */
     public Long getUserID() {
         return userID;
     }

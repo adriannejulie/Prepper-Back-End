@@ -20,6 +20,12 @@ public class RecipesController {
     @Autowired
     private RecipesRepository recipesRepository;
 
+    /**
+     * Retrieves all recipes of a given user
+     * 
+     * @param userID
+     * @return List of Recipe objects and Response Entity code 200
+     */
     @GetMapping("/getRecipes/{userID}")
     public ResponseEntity<List<Recipes>> getRecipesByUser(@PathVariable Integer userID) {
         List<Recipes> recipes = recipeService.getRecipesByUser(userID);
@@ -28,6 +34,11 @@ public class RecipesController {
                 .body(recipes);
     }
 
+    /**
+     * Retrieves all public recipes
+     * 
+     * @return List of Recipe objects and Response Entity code 200
+     */
     @GetMapping("/getPublicRecipes")
     public ResponseEntity<List<Recipes>> getPublicRecipes() {
         List<Recipes> recipes = recipeService.getPublicRecipes();
@@ -36,6 +47,12 @@ public class RecipesController {
                 .body(recipes);
     }
 
+    /**
+     * Retrieves all recipes of a given recipeID
+     * 
+     * @param recipeID
+     * @return List of Recipe objects and Response Entity code 200
+     */
     @GetMapping("/getRecipe/{recipeID}")
     public ResponseEntity<Recipes> getRecipe(@PathVariable Integer recipeID) {
         Recipes recipe = recipeService.getRecipe(recipeID);
@@ -44,6 +61,11 @@ public class RecipesController {
                 .body(recipe);
     }
 
+    /**
+     * Retrieves all recipes
+     * 
+     * @return List of Recipe objects and Response Entity code 200
+     */
     @GetMapping("/getAllRecipes")
     public ResponseEntity<List<Recipes>> getAllRecipes() {
         List<Recipes> recipes = recipeService.getAllRecipes();
@@ -51,7 +73,12 @@ public class RecipesController {
                 .ok()
                 .body(recipes);
     }
-
+    /**
+     * Adds a recipe to the database
+     * 
+     * @param recipe
+     * @return Recipe object to be saved and Response Entity code 200
+     */
     @PostMapping("/addRecipe")
     public ResponseEntity<Recipes> addRecipe(@RequestBody Recipes recipe) {
         Recipes newRecipe = recipeService.saveRecipe(recipe);
@@ -59,7 +86,12 @@ public class RecipesController {
                 .ok()
                 .body(newRecipe);
     }
-
+    /**
+     * Deletes the recipe with a given recipeID
+     * 
+     * @param recipeID
+     * @return Recipe objects and Response Entity code 200
+     */
     @DeleteMapping(path = "/deleteRecipe/{recipeID}")
     public ResponseEntity<Recipes> removeRecipe(@PathVariable("recipeID")Integer recipeId) {
         Recipes recipeToDelete = recipeService.removeRecipe(recipeId);
@@ -68,7 +100,13 @@ public class RecipesController {
                 .ok()
                 .body(recipeToDelete);
     }
-
+    /**
+     * Updates recipe parameters that matches a recipeID
+     * 
+     * @param recipe
+     * @param recipeID
+     * @return Updated Recipe object and Response Entity code 200
+     */
     @PutMapping("/updateRecipe/{recipeID}")
     public ResponseEntity<Recipes> updateRecipe(@RequestBody Recipes recipe, @PathVariable("recipeID") Integer recipeID) {
         Recipes update = recipesRepository.findByRecipeID(recipeID);

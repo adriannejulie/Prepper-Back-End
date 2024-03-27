@@ -36,6 +36,12 @@ public class UsersController {
     private SavedRecipesService savedRecipesService;
     private Users user;
 
+    /**
+     * Adds a new user
+     * 
+     * @param user
+     * @return Response entity code and headers, Users object
+     */
     @PostMapping("/addUser")
     public ResponseEntity<Users> addUser(@RequestBody Users user) {
         Users email = userService.getAccountByEmailAddress(user.getEmail());
@@ -66,6 +72,14 @@ public class UsersController {
         return null;
     }
 
+    /**
+     * Returns the Users object given an email address
+     * 
+     * @param email
+     * @param password
+     * @param isGoogle
+     * @return Response Entity code, headers and User object
+     */
     @GetMapping("/login")
     public ResponseEntity<Users> getUserByEmail(@RequestParam String email, @RequestParam String password, @RequestParam Boolean isGoogle) {
         Users user = userService.getAccountByEmailAddress(email);
@@ -98,6 +112,12 @@ public class UsersController {
         .build();
     }
         
+    /**
+     * Returns Users object given an email
+     * 
+     * @param email
+     * @return User object, Response Entity code and headers
+     */
     @GetMapping("/userData/{email}")
     public ResponseEntity<Object> getUserWithEmail(@PathVariable String email){
             Users user = userService.getAccountByEmailAddress(email);
@@ -115,6 +135,10 @@ public class UsersController {
             }
         }
 
+    /**
+     * Returns the Users object of the current instance
+     * @return Users object, Response Entity code and headers
+     */
     @GetMapping("/userData")
     public ResponseEntity<Object> getUserData(){
             if ( this.user == null) {
@@ -130,6 +154,12 @@ public class UsersController {
             }
         }
 
+    /**
+     * Returns the Users object given the userID
+     * 
+     * @param userID
+     * @return Users object, Response Entity code and headers
+     */
     @GetMapping("/getUser/{userID}")
     public ResponseEntity<Users> getUserByID(@PathVariable String userID){
         Users user = userService.getUserById(userID);
@@ -145,7 +175,13 @@ public class UsersController {
                     .body(user);
         }
     }
-
+    
+    /**
+     * Deletes Users object from UsersRepository given an email
+     * 
+     * @param email
+     * @return Response Entity code 200 and deleted Users object
+     */
     @DeleteMapping("/users/{email}")
     public ResponseEntity<String> deleteUser(@PathVariable("email") String email) {
 

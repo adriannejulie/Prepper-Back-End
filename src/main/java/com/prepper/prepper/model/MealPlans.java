@@ -6,6 +6,11 @@ import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 
+
+/**
+ * This class provides the structure of the Meal_Plan table in the database
+ *
+ */
 @Entity
 public class MealPlans {
     // class variables
@@ -21,7 +26,9 @@ public class MealPlans {
 
     private String type;
 
-    // constructor for MealPlans, will be used in config
+    /**
+     * Constructor used for configuration
+     */
     public MealPlans(LocalDate date, Integer userID, Integer recipeID, String type) {
 
         this.date = date;
@@ -33,11 +40,15 @@ public class MealPlans {
         }
     }
 
-    // default constructor
+    /**
+     * Default constructor required by Spring
+     */
     public MealPlans() {
     }
 
-    // getters and setters
+    /**
+     * Getters and Setters
+     */
     public Integer getMealPlanID() {
         return mealPlanID;
     }
