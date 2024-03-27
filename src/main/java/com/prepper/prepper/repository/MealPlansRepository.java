@@ -9,8 +9,24 @@ import java.util.List;
 
 @Repository
 public interface MealPlansRepository extends JpaRepository<MealPlans, Integer> {
-    // function to get meal plan by a specific date
+    /**
+     * Retrieves all MealPlans objects of a specific date
+     * @param date
+     * @return List of MealPlans Objects
+     */
     List<MealPlans> getByDate(LocalDate date);
+
+    /**
+     * Retrieves all MealPlans objects of a corresponding User
+     * @param userID
+     * @return List of MealPlans Objects
+     */
     List<MealPlans> getByUserID(Integer userID);
+
+    /**
+     * Retrieves all MealPlans objects of a specific recipe
+     * @param recipeID
+     * @return List of MealPlans objects
+     */
     List<MealPlans> getByRecipeID(Integer recipeID);
 }

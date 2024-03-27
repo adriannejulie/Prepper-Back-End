@@ -22,6 +22,12 @@ public class SavedRecipesController {
     @Autowired
     private SavedRecipesRepository savedRecipesRepository;
 
+    /**
+     * Retrieves all saved recipes corresponding to a userID
+     * 
+     * @param userID
+     * @return List of Recipes objects, Response Entity codes and headers
+     */
     @GetMapping("/getSavedRecipes/{userID}")
     public ResponseEntity<List<Recipes>> getSavedRecipe(@PathVariable Integer userID) {
         List<Recipes> recipes = savedRecipeService.getSavedRecipes(userID);
@@ -40,6 +46,12 @@ public class SavedRecipesController {
         }
     }
 
+    /**
+     * Add a recipe to SavedRecipeRepository
+     * 
+     * @param saveRecipe
+     * @return SavedRecipe object, Response Entity codes and headers
+     */
     @PostMapping("/addSavedRecipe")
     public ResponseEntity<SavedRecipes> addSavedRecipe(@RequestBody SavedRecipes saveRecipe  ) {
         List<SavedRecipes> savedRecipes = savedRecipesRepository.findByUserID(saveRecipe.getUserID());
@@ -66,6 +78,13 @@ public class SavedRecipesController {
         }
     }
 
+    /**
+     * Deletes a Users Object and all recipes with corresponding recipeID
+     * 
+     * @param userId
+     * @param recipeId
+     * @return Response Entity codes and headers
+     */
     @DeleteMapping(path = "/removeSavedRecipe/{userID}-{recipeID}")
     public ResponseEntity<Object> removeRecipe(
             @PathVariable("userID") Integer userId,

@@ -121,6 +121,10 @@ public class Recipes {
         this.title = title;
     }
 
+    public void setRecipeID(Integer recipeID) {
+        this.recipeID = recipeID;
+    }
+
     public void setMeasurements(String measurements) {
         this.measurements = measurements;
     }

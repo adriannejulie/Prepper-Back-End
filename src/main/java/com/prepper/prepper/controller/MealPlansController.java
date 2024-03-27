@@ -18,7 +18,13 @@ public class MealPlansController {
     @Autowired
     private MealPlansService mpService;
 
-    // function API to get meal plans by date
+    /**
+     * Retrieves all meal plans for a specific date
+     * 
+     * @param date
+     * @param userID
+     * @return A list of Meal Plans and a Response Entity code
+     */
     @GetMapping("/getMealPlans/{date}/{userID}")
     public ResponseEntity<List<MealPlans>> getMealPlans(@PathVariable String date, @PathVariable Integer userID){
         LocalDate transformedDate = LocalDate.parse(date);
@@ -34,7 +40,12 @@ public class MealPlansController {
                 .body(userPlans);
     }
 
-    // function API to add meal plan to database
+    /**
+     * Adds a new meal plan
+     * 
+     * @param mealPlan
+     * @return Meal plan object and a Response Entity code 200
+     */
     @PostMapping("/addMealPlan")
     public ResponseEntity<MealPlans> addMealPlan(@RequestBody MealPlans mealPlan) {
         MealPlans planToAdd = mpService.saveMealPlan(mealPlan);
@@ -43,6 +54,12 @@ public class MealPlansController {
                 .body(planToAdd);
     }
 
+    /**
+     * Deletes a meal plan
+     * 
+     * @param mealPlanID
+     * @return MealPlan object that was deleted and a Response Entity code 200
+     */
     @DeleteMapping("/removeMealPlan/{mealPlanID}")
     public ResponseEntity<Optional<MealPlans>> removeMealPlan(@PathVariable("mealPlanID") Integer mealPlanID) {
         Optional<MealPlans> planToDelete =  mpService.deleteMealPlan(mealPlanID);
@@ -51,6 +68,13 @@ public class MealPlansController {
                 .body(planToDelete);
     }
 
+    /**
+     * Updates MealPlan variables
+     * 
+     * @param mealPlan
+     * @param mealPlanID
+     * @return Updated MealPlan object and a Response Entity code 200
+     */
     @PutMapping("/editMealPlan/{mealPlanID}")
     public ResponseEntity<MealPlans> editMealPlan(@RequestBody MealPlans mealPlan, @PathVariable Integer mealPlanID) {
         MealPlans updatedMealPlan = mpService.saveMealPlan(mealPlan);
