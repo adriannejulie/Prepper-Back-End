@@ -1,12 +1,9 @@
 package com.prepper.prepper.controller;
 
-import com.prepper.prepper.model.MealPlans;
+
 import com.prepper.prepper.model.Recipes;
-import com.prepper.prepper.model.SavedRecipes;
 import com.prepper.prepper.repository.RecipesRepository;
-import com.prepper.prepper.service.MealPlansService;
 import com.prepper.prepper.service.RecipesService;
-import com.prepper.prepper.service.SavedRecipesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
