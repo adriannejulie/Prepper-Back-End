@@ -2,11 +2,8 @@ package com.prepper.prepper.controller;
 
 import com.prepper.prepper.model.Recipes;
 import com.prepper.prepper.service.SearchService;
-import org.hibernate.annotations.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

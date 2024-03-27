@@ -1,4 +1,6 @@
 package com.prepper.prepper.controller;
+
+
 import com.prepper.prepper.model.Recipes;
 import com.prepper.prepper.model.SavedRecipes;
 import com.prepper.prepper.service.MealPlansService;
@@ -7,7 +9,8 @@ import com.prepper.prepper.service.SavedRecipesService;
 import com.prepper.prepper.service.UsersService;
 import com.prepper.prepper.model.MealPlans;
 import com.prepper.prepper.model.Users;
-import org.apache.catalina.User;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -140,26 +143,6 @@ public class UsersController {
             return ResponseEntity
                     .ok()
                     .body(user);
-        }
-    }
-    
-    @DeleteMapping("/deleteUser")
-    public ResponseEntity<Users> DeleteUser(@RequestBody int userID) {
-        Users email = userService.getAccountByEmailAddress(user.getEmail());
-        
-        if (email == null) {
-            Users newUser = userService.saveUser(user);
-            user = newUser;
-            return ResponseEntity
-                    .ok()
-                    .body(newUser);
-        } else {
-            HttpHeaders headers = new HttpHeaders();
-            headers.add("Email address already exists", "Email Address: " + email.getEmail());
-            return ResponseEntity
-                    .badRequest()
-                    .headers(headers)
-                    .build();
         }
     }
 
