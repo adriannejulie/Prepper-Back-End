@@ -1,7 +1,6 @@
 package com.prepper.prepper.config;
 
 import com.prepper.prepper.model.SavedRecipes;
-import com.prepper.prepper.repository.RecipesRepository;
 import com.prepper.prepper.repository.SavedRecipesRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

@@ -2,7 +2,6 @@ package com.prepper.prepper.config;
 
 import com.prepper.prepper.model.MealPlans;
 import com.prepper.prepper.repository.MealPlansRepository;
-import com.prepper.prepper.repository.RecipesRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
