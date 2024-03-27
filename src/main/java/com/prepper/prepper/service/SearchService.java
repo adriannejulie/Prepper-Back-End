@@ -1,7 +1,6 @@
 package com.prepper.prepper.service;
 
 import com.prepper.prepper.model.Recipes;
-import com.prepper.prepper.model.Users;
 import com.prepper.prepper.repository.RecipesRepository;
 import org.springframework.stereotype.Service;
 
