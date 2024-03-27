@@ -1,1 +1,10 @@
-/Users/adriannelat/OneDrive/SENG401/Prepare-Back-End/src/test/java/com/prepper/prepper/PrepperApplicationTests.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/repository/SavedRecipeRepositoryTest.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/service/SavedRecipesServiceTest.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/repository/MealPlansRepositoryTest.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/repository/RecipesRepositoryTest.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/controller/SavedRecipesControllerTest.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/service/MealPlansServiceTest.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/PrepperApplicationTests.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/service/SearchServiceTest.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/service/RecipesServiceTest.java
+/Users/braden/3rd Year/SENG 401/Prepper-Back-End/src/test/java/com/prepper/prepper/service/UsersServiceTest.java

@@ -113,6 +113,7 @@ public class RecipesController {
         update.setTitle(recipe.getTitle());
         update.setImage(recipe.getImage());
         update.setMeasurements(recipe.getMeasurements());
+        update.setCalories(recipe.getCalories());
         update.setIngredients(recipe.getIngredients());
         update.setInstructions(recipe.getInstructions());
         update.setPrepTime(recipe.getPrepTime());
